@@ -1,0 +1,21 @@
+footer.footer{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 25px;
+    background-color: #fff;
+    box-shadow: var(--shadow);
+    margin-top: 10px;
+}
+
+.yellow {
+    color: rgb(224, 224, 60);
+}
+
+.blue {
+    color: rgb(112, 112, 230);
+}
+
+.v-middle{
+    vertical-align: middle;
+}
