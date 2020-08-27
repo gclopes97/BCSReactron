@@ -3,21 +3,6 @@
   "version": "0.1.0",
   "description": "BCS service Aplication",
   "author": "bcs",
-  "build": {
-    "appId": "bcs.services",
-    "win":{
-      "icon": "public/icon.ico"
-    },
-    "extraFiles": [
-      {
-          "from": "src/assets",
-          "to": "resources",
-          "filter": [
-              "**/*"
-          ]
-      }
-  ]
-  },
   "homepage": "./",
   "main": "public/electron.js",
   "dependencies": {
@@ -41,11 +26,31 @@
     "react-build": "react-scripts build",
     "react-test": "react-scripts test",
     "react-eject": "react-scripts eject",
-    "electron-build": "electron-builder",
+    "electron-build": "electron-builder -w",
+    "win-cert":"electron-builder create-self-signed-cert -p bcs",
     "build": "npm run react-build && npm run electron-build",
     "start": "concurrently \"cross-env BROWSER=none npm run react-start\" \"wait-on http://localhost:3000 && electron .\""
   },
-  "proxy": "http://localhost:3003",
+  "repository": "https://github.com/gclopes97/BCSReactron", 
+  "build": {
+    "appId": "com.bcs.bcsapp",
+    "copyright": "Copyright BCS",
+    "win":{
+      "icon": "public/icon.ico",
+      "certificateFile":"private/bcs.pfx",
+      "certificatePassword":"",
+      "publisherName": "bcs"
+    },
+    "extraFiles": [
+      {
+          "from": "src/assets",
+          "to": "resources",
+          "filter": [
+              "**/*"
+          ]
+      }
+  ]
+  },
   "eslintConfig": {
     "extends": "react-app"
   },
