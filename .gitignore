@@ -4,6 +4,7 @@
 node_modules
 build
 dist
+private
 api/node_modules
 /.pnp
 .pnp.js

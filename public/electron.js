@@ -1,6 +1,7 @@
 const { app, BrowserWindow, Tray, Menu } = require('electron')
 const path = require('path')
 const isDev = require('electron-is-dev')
+const updater = require('./updater')
 const nativeImage = require('electron').nativeImage
 
 let trayMenu = Menu.buildFromTemplate([
@@ -8,6 +9,9 @@ let trayMenu = Menu.buildFromTemplate([
     label: 'Mostrar', click: () => {
       win.show()
     }
+  },
+  {
+    label: 'Versão '+ app.getVersion(),
   },
   {
     label: 'Fechar', click: () => {
@@ -35,6 +39,10 @@ function createTray() {
 
 function createWindow() {
   createTray()
+
+  //Check for app updates after 3 seconds
+  setTimeout(updater, 1500)
+
   // Cria uma janela de navegação.
   win = new BrowserWindow({
     width: 1000,
